@@ -15,7 +15,7 @@ def save2h5():
         temp = line.strip('\n')
         date.append(temp)
     f = h5py.File(file_hdf5, 'w')
-    data = np.zeros((48, 2, 32, 32))
+    data = np.zeros((48*31, 2, 32, 32))
 
     for m in range(len(date)):
         f_in = './data/InOut/' + date[m] + 'inflow.csv'

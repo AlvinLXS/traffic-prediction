@@ -187,7 +187,7 @@ def main():
     time_all = get_time_list('time_1.txt')
     print('Total ' + str(len(file_name)) + ' files')
     for i in range(len(file_name)):
-        print('File ' + str(i) + '/' + str(len(file_name)) + ': ' + file_name[i])
+        print('File ' + str(i+1) + '/' + str(len(file_name)) + ': ' + file_name[i])
         file_remove = remove_duplicates(dir_temp, file_name[i])
         print('Remove duplicates!')
         file_sort = sort_and_filter(file_remove, file_name[i], time_all[i], time_all[i+1])
