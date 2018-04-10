@@ -20,9 +20,6 @@ def get_file_name(file_path):
 
 
 def change_to_time_stamp(date):
-    """
-    Change time from '%Y-%m-%d %H:%M:%S' to timestamp
-    """
     stamp = '%Y-%m-%d %H:%M:%S'
     time_stamp = time.mktime(time.strptime(date, stamp))
     return time_stamp
@@ -63,10 +60,10 @@ def main():
             data1 = lines[0]
             data2 = lines[1:3]
 
-            # Replace the Chinese
+            # Replace the Chinese characters
             data1 = pattern.sub('', str(data1)).split(' ')
 
-            # Convert time to a timestamp
+            # Convert time to timestamp
             time_stamp = change_to_time_stamp(data3)
 
             data2.append(time_stamp)

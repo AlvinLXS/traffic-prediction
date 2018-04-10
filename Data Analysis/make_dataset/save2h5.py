@@ -5,6 +5,9 @@ import re
 
 
 def save2h5():
+    """
+    Compress the CSV files into a HDF5 file
+    """
     path_date = 'date_1.txt'
     file_hdf5 = 'SZ16_M32x32_InOut.h5'
     pattern1 = re.compile('GPS')
@@ -14,9 +17,11 @@ def save2h5():
     for line in date_txt.readlines():
         temp = line.strip('\n')
         date.append(temp)
+    # Create an empty HDF5
     f = h5py.File(file_hdf5, 'w')
     data = np.zeros((48*31, 2, 32, 32))
 
+    # Write the CSV files to the table.
     for m in range(len(date)):
         f_in = './data/InOut/' + date[m] + 'inflow.csv'
         f_out = './data/InOut/' + date[m] + 'outflow.csv'

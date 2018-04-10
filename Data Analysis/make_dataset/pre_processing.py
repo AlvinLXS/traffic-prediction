@@ -15,9 +15,6 @@ def get_time_list(filename):
 
 
 def remove_duplicates(dir_path, filename):
-    """
-    Delete duplicate data.
-    """
     csv_file = './data/remove_duplicates/' + filename + '_remove_duplicates.csv'
     file = pd.read_csv(dir_path + filename + '_raw.csv', low_memory=False)
     file_list = file.drop_duplicates()
@@ -189,13 +186,13 @@ def main():
     for i in range(len(file_name)):
         print('File ' + str(i+1) + '/' + str(len(file_name)) + ': ' + file_name[i])
         file_remove = remove_duplicates(dir_temp, file_name[i])
-        print('Remove duplicates!')
+        print('Removal of duplicate data has been completed!')
         file_sort = sort_and_filter(file_remove, file_name[i], time_all[i], time_all[i+1])
-        print('Sorted')
+        print('Sorting and filtering are done!')
         count(file_sort, file_name[i])
-        print('All Done!')
+        print('Statistics have been completed!')
         change_style(file_name[i])
-        print('change style has been done!')
+        print('Change style has been done!')
     print('All done! Check the data!')
 
 
